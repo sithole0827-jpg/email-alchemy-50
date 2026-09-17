@@ -157,6 +157,17 @@ function Index() {
               </div>
 
               <div className="space-y-2">
+                <Label htmlFor="recipient">Recipient name or organisation</Label>
+                <Input
+                  id="recipient"
+                  value={recipient}
+                  maxLength={200}
+                  onChange={(e) => setRecipient(e.target.value)}
+                  placeholder="Mrs Dlamini / Absa HR"
+                />
+              </div>
+
+              <div className="space-y-2">
                 <Label htmlFor="sender">Your name</Label>
                 <Input
                   id="sender"
