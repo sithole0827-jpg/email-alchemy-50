@@ -156,37 +156,27 @@ function Index() {
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="recipient">Recipient name or organisation</Label>
-                  <Input
-                    id="recipient"
-                    value={recipient}
-                    maxLength={200}
-                    onChange={(e) => setRecipient(e.target.value)}
-                    placeholder="Mrs Dlamini / Absa HR"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="purpose">Purpose</Label>
-                  <Input
-                    id="purpose"
-                    value={purpose}
-                    maxLength={300}
-                    onChange={(e) => setPurpose(e.target.value)}
-                    placeholder="Leave request, job application…"
-                  />
-                </div>
-                <div className="space-y-2 sm:col-span-2">
-                  <Label htmlFor="sender">Your name</Label>
-                  <Input
-                    id="sender"
-                    value={senderName}
-                    maxLength={120}
-                    onChange={(e) => setSenderName(e.target.value)}
-                    placeholder="Thabiso Sithole"
-                  />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="sender">Your name</Label>
+                <Input
+                  id="sender"
+                  value={senderName}
+                  maxLength={120}
+                  onChange={(e) => setSenderName(e.target.value)}
+                  placeholder="Thabiso Sithole"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="about">What is this email about?</Label>
+                <Textarea
+                  id="about"
+                  value={purpose}
+                  maxLength={1000}
+                  onChange={(e) => setPurpose(e.target.value)}
+                  placeholder="Requesting a meeting to discuss month-end reports"
+                  className="min-h-24 resize-y"
+                />
               </div>
 
               <Button

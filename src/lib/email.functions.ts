@@ -7,7 +7,7 @@ const GenerateInput = z.object({
   message: z.string().trim().min(1).max(4000),
   tone: ToneEnum,
   recipient: z.string().trim().max(200).default(""),
-  purpose: z.string().trim().max(300).default(""),
+  purpose: z.string().trim().max(1000).default(""),
   senderName: z.string().trim().max(120).default(""),
   action: z
     .enum(["generate", "improve", "shorter", "more_professional", "change_tone", "regenerate"])
