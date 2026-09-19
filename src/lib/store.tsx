@@ -54,7 +54,7 @@ export type AccountRole = "customer" | "provider" | "entrepreneur";
 export type Account = {
   name: string;
   email: string;
-  phone?: string;
+  phone?: string | undefined;
   role: AccountRole;
 };
 
@@ -98,7 +98,7 @@ type StoreContextValue = StoreState & {
   register: (input: {
     name: string;
     email: string;
-    phone?: string;
+    phone?: string | undefined;
     password: string;
     role: AccountRole;
   }) => { ok: true; account: Account } | { ok: false; error: string };
@@ -274,6 +274,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       addProvider,
       signIn,
       signOut,
+      register,
+      login,
     }),
     [
       state,
@@ -286,6 +288,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       addProvider,
       signIn,
       signOut,
+      register,
+      login,
     ],
   );
 
