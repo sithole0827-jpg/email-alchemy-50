@@ -95,6 +95,18 @@ type StoreContextValue = StoreState & {
   addProvider: (p: Omit<Provider, "id" | "rating" | "reviewCount" | "completedJobs" | "verified">) => Provider;
   signIn: (a: Account) => void;
   signOut: () => void;
+  register: (input: {
+    name: string;
+    email: string;
+    phone?: string;
+    password: string;
+    role: AccountRole;
+  }) => { ok: true; account: Account } | { ok: false; error: string };
+  login: (input: {
+    email: string;
+    password: string;
+    role: AccountRole;
+  }) => { ok: true; account: Account } | { ok: false; error: string };
 };
 
 const StoreContext = createContext<StoreContextValue | null>(null);
