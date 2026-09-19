@@ -49,10 +49,19 @@ export type Review = {
   createdAt: string;
 };
 
+export type AccountRole = "customer" | "provider" | "entrepreneur";
+
 export type Account = {
   name: string;
   email: string;
-  role: "customer" | "provider" | "entrepreneur";
+  phone?: string;
+  role: AccountRole;
+};
+
+/** Demo credential record. Stored in this browser only — never a real auth system. */
+export type StoredUser = Account & {
+  password: string;
+  createdAt: string;
 };
 
 type StoreState = {
@@ -60,6 +69,7 @@ type StoreState = {
   quotes: QuoteRequest[];
   reviews: Review[];
   providers: Provider[];
+  users: StoredUser[];
   account: Account | null;
 };
 
@@ -68,6 +78,7 @@ const EMPTY: StoreState = {
   quotes: [],
   reviews: [],
   providers: [],
+  users: [],
   account: null,
 };
 
