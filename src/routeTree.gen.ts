@@ -10,11 +10,27 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CustomerRouteImport } from './routes/customer'
+import { Route as DemandMapRouteImport } from './routes/demand-map'
+import { Route as EntrepreneurRouteImport } from './routes/entrepreneur'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as OpportunitiesRouteImport } from './routes/opportunities'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProviderRouteImport } from './routes/provider'
+import { Route as ReportRouteImport } from './routes/report'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -22,31 +38,165 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomerRoute = CustomerRouteImport.update({
+  id: '/customer',
+  path: '/customer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemandMapRoute = DemandMapRouteImport.update({
+  id: '/demand-map',
+  path: '/demand-map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EntrepreneurRoute = EntrepreneurRouteImport.update({
+  id: '/entrepreneur',
+  path: '/entrepreneur',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpportunitiesRoute = OpportunitiesRouteImport.update({
+  id: '/opportunities',
+  path: '/opportunities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProviderRoute = ProviderRouteImport.update({
+  id: '/provider',
+  path: '/provider',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportRoute = ReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/customer': typeof CustomerRoute
+  '/demand-map': typeof DemandMapRoute
+  '/entrepreneur': typeof EntrepreneurRoute
+  '/help': typeof HelpRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/provider': typeof ProviderRoute
+  '/report': typeof ReportRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/customer': typeof CustomerRoute
+  '/demand-map': typeof DemandMapRoute
+  '/entrepreneur': typeof EntrepreneurRoute
+  '/help': typeof HelpRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/provider': typeof ProviderRoute
+  '/report': typeof ReportRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
+  '/customer': typeof CustomerRoute
+  '/demand-map': typeof DemandMapRoute
+  '/entrepreneur': typeof EntrepreneurRoute
+  '/help': typeof HelpRoute
+  '/opportunities': typeof OpportunitiesRoute
+  '/privacy': typeof PrivacyRoute
+  '/provider': typeof ProviderRoute
+  '/report': typeof ReportRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/customer'
+    | '/demand-map'
+    | '/entrepreneur'
+    | '/help'
+    | '/opportunities'
+    | '/privacy'
+    | '/provider'
+    | '/report'
+    | '/services'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth'
-  id: '__root__' | '/' | '/auth'
+  to:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/customer'
+    | '/demand-map'
+    | '/entrepreneur'
+    | '/help'
+    | '/opportunities'
+    | '/privacy'
+    | '/provider'
+    | '/report'
+    | '/services'
+    | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/customer'
+    | '/demand-map'
+    | '/entrepreneur'
+    | '/help'
+    | '/opportunities'
+    | '/privacy'
+    | '/provider'
+    | '/report'
+    | '/services'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
+  CustomerRoute: typeof CustomerRoute
+  DemandMapRoute: typeof DemandMapRoute
+  EntrepreneurRoute: typeof EntrepreneurRoute
+  HelpRoute: typeof HelpRoute
+  OpportunitiesRoute: typeof OpportunitiesRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProviderRoute: typeof ProviderRoute
+  ReportRoute: typeof ReportRoute
+  ServicesRoute: typeof ServicesRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +208,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
@@ -65,12 +222,93 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/customer': {
+      id: '/customer'
+      path: '/customer'
+      fullPath: '/customer'
+      preLoaderRoute: typeof CustomerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demand-map': {
+      id: '/demand-map'
+      path: '/demand-map'
+      fullPath: '/demand-map'
+      preLoaderRoute: typeof DemandMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/entrepreneur': {
+      id: '/entrepreneur'
+      path: '/entrepreneur'
+      fullPath: '/entrepreneur'
+      preLoaderRoute: typeof EntrepreneurRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/opportunities': {
+      id: '/opportunities'
+      path: '/opportunities'
+      fullPath: '/opportunities'
+      preLoaderRoute: typeof OpportunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/provider': {
+      id: '/provider'
+      path: '/provider'
+      fullPath: '/provider'
+      preLoaderRoute: typeof ProviderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report': {
+      id: '/report'
+      path: '/report'
+      fullPath: '/report'
+      preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
+  CustomerRoute: CustomerRoute,
+  DemandMapRoute: DemandMapRoute,
+  EntrepreneurRoute: EntrepreneurRoute,
+  HelpRoute: HelpRoute,
+  OpportunitiesRoute: OpportunitiesRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProviderRoute: ProviderRoute,
+  ReportRoute: ReportRoute,
+  ServicesRoute: ServicesRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
