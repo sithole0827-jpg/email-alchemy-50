@@ -195,6 +195,72 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const signIn = useCallback((account: Account) => setState((s) => ({ ...s, account })), []);
   const signOut = useCallback(() => setState((s) => ({ ...s, account: null })), []);
 
+  const register: StoreContextValue["register"] = useCallback((input) => {
+    const email = input.email.trim().toLowerCase();
+    let result: ReturnType<StoreContextValue["register"]> = {
+      ok: false,
+      error: "Could not create the account.",
+    };
+
+    setState((s) => {
+      const taken = s.users.some((u) => u.email === email && u.role === input.role);
+      if (taken) {
+        result = {
+          ok: false,
+          error: "An account with this email already exists for this role. Try signing in.",
+        };
+        return s;
+      }
+      const user: StoredUser = {
+        name: input.name.trim(),
+        email,
+        phone: input.phone?.trim() || undefined,
+        role: input.role,
+        password: input.password,
+        createdAt: new Date().toISOString(),
+      };
+      const account: Account = {
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        role: user.role,
+      };
+      result = { ok: true, account };
+      return { ...s, users: [user, ...s.users], account };
+    });
+
+    return result;
+  }, []);
+
+  const login: StoreContextValue["login"] = useCallback((input) => {
+    const email = input.email.trim().toLowerCase();
+    let result: ReturnType<StoreContextValue["login"]> = {
+      ok: false,
+      error: "Could not sign in.",
+    };
+
+    setState((s) => {
+      const user = s.users.find((u) => u.email === email && u.role === input.role);
+      if (!user || user.password !== input.password) {
+        result = {
+          ok: false,
+          error: "We couldn't find a matching account. Check the email, password and account type.",
+        };
+        return s;
+      }
+      const account: Account = {
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        role: user.role,
+      };
+      result = { ok: true, account };
+      return { ...s, account };
+    });
+
+    return result;
+  }, []);
+
   const value = useMemo<StoreContextValue>(
     () => ({
       ...state,
